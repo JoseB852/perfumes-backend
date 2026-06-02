@@ -1,18 +1,15 @@
-const express = require("express");
+const path = require("path");
 const fs = require("fs");
-
-const router = express.Router();
 
 const getProductos = () => {
   try {
     const filePath = path.join(__dirname, "../data/productos.json");
     return JSON.parse(fs.readFileSync(filePath, "utf-8"));
   } catch (e) {
-    console.log("Error leyendo productos:", e);
+    console.log("ERROR leyendo JSON:", e);
     return [];
   }
 };
-
 router.get("/", (req, res) => {
   const productos = getProductos();
 
