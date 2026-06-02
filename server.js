@@ -1,13 +1,5 @@
-const express = require("express");
-const cors = require("cors");
+const PORT = process.env.PORT || 3001;
 
-const productosRoutes = require("./routes/productos");
-
-const app = express();
-
-app.use(cors());
-app.use("/api/productos", productosRoutes);
-
-app.listen(3001, () => {
-  console.log("🚀 Backend corriendo en http://localhost:3001");
+app.listen(PORT, () => {
+  console.log(`🚀 Backend corriendo en puerto ${PORT}`);
 });
