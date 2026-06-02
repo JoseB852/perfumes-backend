@@ -7,10 +7,7 @@ const app = express();
 
 // CORS (frontend puede conectar)
 app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "https://perfumes-khaki.vercel.app"
-  ]
+  origin: "*"
 }));
 
 app.use(express.json());
@@ -21,6 +18,6 @@ app.use("/api/productos", productosRoutes);
 // PORT dinámico para Render
 const PORT = process.env.PORT || 3001;
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`🚀 Backend corriendo en puerto ${PORT}`);
 });
