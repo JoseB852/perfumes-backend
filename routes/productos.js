@@ -4,9 +4,11 @@ const fs = require("fs");
 const getProductos = () => {
   try {
     const filePath = path.join(__dirname, "../data/productos.json");
-    return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    const data = fs.readFileSync(filePath, "utf-8");
+
+    return JSON.parse(data);
   } catch (e) {
-    console.log("ERROR leyendo JSON:", e);
+    console.log("❌ Error leyendo productos:", e);
     return [];
   }
 };
