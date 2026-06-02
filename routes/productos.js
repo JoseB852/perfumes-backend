@@ -5,8 +5,10 @@ const router = express.Router();
 
 const getProductos = () => {
   try {
-    return JSON.parse(fs.readFileSync("./data/productos.json", "utf-8"));
+    const filePath = path.join(__dirname, "../data/productos.json");
+    return JSON.parse(fs.readFileSync(filePath, "utf-8"));
   } catch (e) {
+    console.log("Error leyendo productos:", e);
     return [];
   }
 };
