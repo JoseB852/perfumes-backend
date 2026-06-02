@@ -6,7 +6,12 @@ const productosRoutes = require("./routes/productos");
 const app = express();
 
 // CORS (frontend puede conectar)
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://perfumes-khaki.vercel.app"
+  ]
+}));
 
 app.use(express.json());
 
